@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="tet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Komunidade Lokal Ataúro | Timor-Leste</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;color:#3d2b1f;background:#fbf7ef;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    header{
+      position:fixed;top:0;left:0;width:100%;z-index:10;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:18px 7%;background:rgba(61,43,31,.90);backdrop-filter:blur(10px);
+      color:white
+    }
+    .logo{font-size:25px;font-weight:800;letter-spacing:2px}
+    .logo span{color:#e5b45b}
+    nav{display:flex;gap:24px;font-size:14px;font-weight:700}
+    nav a:hover{color:#f3cf7a}
+    .hero{
+      min-height:100vh;display:flex;align-items:center;padding:120px 8% 70px;
+      position:relative;color:white;
+      background:
+        linear-gradient(90deg,rgba(45,27,15,.82),rgba(80,50,25,.18)),
+        url("https://upload.wikimedia.org/wikipedia/commons/b/b4/Women_in_Macadade%2C_Atauro.jpg") center/cover no-repeat;
+    }
+    .hero-content{max-width:760px}
+    .tag{font-size:12px;letter-spacing:4px;font-weight:800;color:#f3cf7a;margin-bottom:12px}
+    h1{font-size:clamp(50px,8vw,100px);line-height:.95;margin-bottom:22px}
+    .hero p:not(.tag){font-size:20px;max-width:680px;margin-bottom:30px}
+    .btn{display:inline-block;padding:13px 24px;border-radius:30px;font-weight:700;margin-right:8px}
+    .primary{background:#e5b45b;color:#3d2b1f}
+    .outline{border:1px solid white;background:rgba(255,255,255,.12)}
+    section{padding:85px 8%}
+    .title{text-align:center;max-width:800px;margin:0 auto 45px}
+    .title h2{font-size:42px;color:#4b2f1d;margin-bottom:12px}
+    .title p{color:#745f50}
+    .about{background:#efe2ce}
+    .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+    .about h2{font-family:Georgia,serif;font-size:52px;color:#4b2f1d;line-height:1.05;margin-bottom:18px}
+    .facts{display:grid;gap:15px}
+    .fact{background:#fff;padding:22px;border-left:4px solid #b97736;border-radius:10px;box-shadow:0 8px 22px rgba(80,45,20,.06)}
+    .fact strong{font-size:23px;color:#8a5429;display:block;margin-bottom:4px}
+    .gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px;gap:12px}
+    .photo{border-radius:12px;background-size:cover;background-position:center;display:flex;align-items:end;padding:18px;color:white;font-weight:bold;overflow:hidden;position:relative}
+    .photo:before{content:"";position:absolute;inset:0;background:linear-gradient(transparent,rgba(0,0,0,.70))}
+    .photo span{position:relative;z-index:1}
+    .photo.big{grid-row:span 2;background-image:url("https://upload.wikimedia.org/wikipedia/commons/b/b4/Women_in_Macadade%2C_Atauro.jpg")}
+    .photo.two{background-image:url("https://upload.wikimedia.org/wikipedia/commons/b/b4/Women_in_Macadade%2C_Atauro.jpg")}
+    .photo.three{background-image:url("https://upload.wikimedia.org/wikipedia/commons/b/b3/Atauro_coast.jpg")}
+    .photo.four{background-image:url("https://upload.wikimedia.org/wikipedia/commons/b/b3/Atauro_coast.jpg")}
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .card{background:white;padding:30px 22px;border-radius:15px;border:1px solid #ead9c5;box-shadow:0 8px 25px rgba(80,45,20,.06)}
+    .icon{font-size:38px;margin-bottom:10px}
+    .card h3{color:#4b2f1d;margin-bottom:7px}
+    .card p{font-size:14px;color:#6d5c50}
+    .culture{background:#4b2f1d;color:white;display:grid;grid-template-columns:1fr 1fr;padding:0}
+    .culture-img{min-height:500px;background:url("https://upload.wikimedia.org/wikipedia/commons/b/b4/Women_in_Macadade%2C_Atauro.jpg") center/cover}
+    .culture-text{padding:75px 10%;display:flex;flex-direction:column;justify-content:center}
+    .culture-text h2{font-family:Georgia,serif;font-size:48px;line-height:1.1;margin-bottom:18px}
+    .culture-text p{color:#eadfce}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .step{background:white;border-radius:14px;padding:28px;border:1px solid #ead9c5}
+    .step-number{color:#a7642c;font-weight:800;font-size:13px;letter-spacing:2px}
+    .step h3{margin:10px 0 5px}
+    .notice{margin-top:25px;background:#f2e2c7;padding:18px;border-radius:10px;font-size:14px}
+    .contact{background:#efe2ce}
+    .contact-box{max-width:800px;margin:auto;text-align:center}
+    .contact h2{font-size:42px;color:#4b2f1d}
+    footer{background:#2c1b11;color:#d9c8b8;padding:28px 8%;display:flex;justify-content:space-between;gap:20px;font-size:13px}
+    .credit{opacity:.8;font-size:11px;max-width:850px;margin:12px auto 0;text-align:center}
+    @media(max-width:900px){
+      nav{display:none}
+      .about-grid,.culture{grid-template-columns:1fr}
+      .culture-img{min-height:320px}
+      .cards{grid-template-columns:1fr 1fr}
+      .steps{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr 1fr;grid-template-rows:220px 220px 220px}
+      .photo.big{grid-row:span 1;grid-column:span 2}
+    }
+    @media(max-width:600px){
+      section{padding:65px 6%}
+      .hero{padding-left:6%;padding-right:6%}
+      .hero h1{font-size:58px}
+      .hero p:not(.tag){font-size:17px}
+      .cards{grid-template-columns:1fr}
+      .gallery{display:block}
+      .photo{height:230px;margin-bottom:10px}
+      .about h2,.culture-text h2{font-size:39px}
+      footer{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="#home">ATAÚRO<span>•</span></a>
+  <nav>
+    <a href="#home">Inísiu</a>
+    <a href="#kona-ba">Artesanatu</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#tipu">Tipu Artesanatu</a>
+    <a href="#komunidade">Komunidade</a>
+    <a href="#kontaktu">Kontaktu</a>
+     <a href="index.html">Fila</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <p class="tag">KOMUNIDADE LOKAL • ATAÚRO</p>
+    <h1>Komunidade Lokal Ataúro</h1>
+    <p>Komunidade lokal Ataúro moris ho kultura, tradisaun, solidariedade no koñesimentu lokal ne’ebé transmite husi jerasaun ba jerasaun.</p>
+    <a class="btn primary" href="#galeria">Haree Komunidade</a>
+    <a class="btn outline" href="#kona-ba">Conhece Komunidade</a>
+  </div>
+</section>
+
+<section class="about" id="kona-ba">
+  <div class="about-grid">
+    <div>
+      <p class="tag">KONA-BA KOMUNIDADE</p>
+      <h2>Komunidade lokal ne’ebé forte no iha identidade.</h2>
+      <p>Komunidade lokal mak parte importante husi identidade Ataúro. Kultura, tradisaun, servisu hamutuk no koñesimentu lokal ajuda fortalece relasaun entre familia, vizinhansa no jerasaun sira.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><strong>👨‍👩‍👧‍👦 Familia & Komunidade</strong> Familia no grupu lokal sira hamutuk hodi mantén kultura, tradisaun no moris komunidade.</div>
+      <div class="fact"><strong>🌿 Natureza & Moris</strong> Natureza no rekursu lokal iha papel importante iha moris no atividade komunidade.</div>
+      <div class="fact"><strong>🤝 Servisu Hamutuk</strong> Kooperasaun no ajuda malu fortalece komunidade no kria oportunidade ba ema lokal.</div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="title">
+    <p class="tag">GALERIA</p>
+    <h2>Komunidade no Ambiente Lokal Ataúro</h2>
+    <p>Galeria ne’e hatudu ema, familia, uma, atividade lokal no paisajen ne’ebé forma moris komunidade Ataúro.</p>
+  </div>
+  <div class="gallery">
+    <div class="photo big"><span>Ema & Vida Komunidade</span></div>
+    <div class="photo two"><span>Uma no Ambiente Lokal</span></div>
+    <div class="photo three"><span>Natureza & Paisajen Ataúro</span></div>
+    <div class="photo four"><span>Kultura & Tradisaun Ataúro</span></div>
+  </div>
+</section>
+
+<section id="tipu">
+  <div class="title">
+    <p class="tag">KOMUNIDADE LOKAL</p>
+    <h2>Elementu importante komunidade</h2>
+    <p>Komunidade liga ema, kultura, natureza, servisu hamutuk no ekonomia lokal.</p>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="icon">🧵</div><h3>Kultura</h3><p>Liafuan, lisan, tradisaun no atividade kultura reprezenta identidade komunidade.</p></div>
+    <div class="card"><div class="icon">🌿</div><h3>Natureza</h3><p>Natureza no rekursu lokal sustenta moris no atividade komunidade.</p></div>
+    <div class="card"><div class="icon">🧺</div><h3>Ekonomia Lokal</h3><p>Produtu no servisu lokal bele ajuda aumenta oportunidade no rendimento komunidade.</p></div>
+    <div class="card"><div class="icon">🏝️</div><h3>Identidade Komunidade</h3><p>Kultura, istória no tradisaun liga komunidade ho natureza no rai Ataúro.</p></div>
+  </div>
+</section>
+
+<section class="culture">
+  <div class="culture-img"></div>
+  <div class="culture-text">
+    <p class="tag">KOMUNIDADE ATAÚRO</p>
+    <h2>Komunidade mak istória moris ne’ebé ita bele haree, rona no aprende.</h2>
+    <p>Komunidade lokal la’ós deit fatin ida. Nia mak ema, familia, kultura, tradisaun, memória no koñesimentu ne’ebé moris hamutuk. Valoriza komunidade signifika respeita ema no kontribuisaun sira ba dezenvolvimentu Ataúro.</p>
+  </div>
+</section>
+
+<section id="komunidade">
+  <div class="title">
+    <p class="tag">KOMUNIDADE LOKAL</p>
+    <h2>Valoriza no respeita komunidade lokal</h2>
+    <p>Vizitante bele apoia komunidade ho respeitu ba kultura, costume, ambiente no dignidade ema lokal.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><span class="step-number">01 — HAREE</span><h3>Conhece komunidade</h3><p>Aprende kona-ba moris, kultura, atividade no istória komunidade.</p></div>
+    <div class="step"><span class="step-number">02 — RESPEITA</span><h3>Respeita kultura</h3><p>Respeita costume, tradisaun, kultura no koñesimentu lokal komunidade.</p></div>
+    <div class="step"><span class="step-number">03 — APOIA</span><h3>Apoia lokal</h3><p>Hili servisu no produtu lokal, no ajuda kria oportunidade ekonomia ba familia no komunidade.</p></div>
+  </div>
+  <div class="notice">💡 <strong>Nota:</strong> Bainhira foti foto ka dokumenta atividade komunidade, husu permisaun ba ema ka komunidade ne’ebé involve.</div>
+</section>
+
+<section class="contact" id="kontaktu">
+  <div class="contact-box">
+    <p class="tag">KOMUNIDADE LOKAL ATAÚRO</p>
+    <h2>Conhece ema, kultura no identidade Ataúro.</h2>
+    <p>Kultura • Natureza • Arte Manual • Komunidade</p>
+    <br>
+    <a class="btn primary" href="#home">Fila ba Inísiu ↑</a>
+    <p class="credit">Imajen: Wikimedia Commons — “Women in Macadade, Atauro” (Tatoli Ba Kultura) no “Atauro coast” (molly+). Licensa no atribuisaun tuir pájina fonte.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="logo">ATAÚRO<span>•</span></div>
+  <div>© 2026 Komunidade Lokal Ataúro</div>
+  <div>Kultura • Identidade • Komunidade</div>
+</footer>
+
+</body>
+</html>

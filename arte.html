@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="tet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artesanatu Lokal Ataúro | Timor-Leste</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;color:#3d2b1f;background:#fbf7ef;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    header{
+      position:fixed;top:0;left:0;width:100%;z-index:10;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:18px 7%;background:rgba(61,43,31,.90);backdrop-filter:blur(10px);
+      color:white
+    }
+    .logo{font-size:25px;font-weight:800;letter-spacing:2px}
+    .logo span{color:#e5b45b}
+    nav{display:flex;gap:24px;font-size:14px;font-weight:700}
+    nav a:hover{color:#f3cf7a}
+    .hero{
+      min-height:100vh;display:flex;align-items:center;padding:120px 8% 70px;
+      position:relative;color:white;
+      background:
+        linear-gradient(90deg,rgba(45,27,15,.82),rgba(80,50,25,.18)),
+        url("https://upload.wikimedia.org/wikipedia/commons/b/b3/Atauro_coast.jpg") center/cover no-repeat;
+    }
+    .hero-content{max-width:760px}
+    .tag{font-size:12px;letter-spacing:4px;font-weight:800;color:#f3cf7a;margin-bottom:12px}
+    h1{font-size:clamp(50px,8vw,100px);line-height:.95;margin-bottom:22px}
+    .hero p:not(.tag){font-size:20px;max-width:680px;margin-bottom:30px}
+    .btn{display:inline-block;padding:13px 24px;border-radius:30px;font-weight:700;margin-right:8px}
+    .primary{background:#e5b45b;color:#3d2b1f}
+    .outline{border:1px solid white;background:rgba(255,255,255,.12)}
+    section{padding:85px 8%}
+    .title{text-align:center;max-width:800px;margin:0 auto 45px}
+    .title h2{font-size:42px;color:#4b2f1d;margin-bottom:12px}
+    .title p{color:#745f50}
+    .about{background:#efe2ce}
+    .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+    .about h2{font-family:Georgia,serif;font-size:52px;color:#4b2f1d;line-height:1.05;margin-bottom:18px}
+    .facts{display:grid;gap:15px}
+    .fact{background:#fff;padding:22px;border-left:4px solid #b97736;border-radius:10px;box-shadow:0 8px 22px rgba(80,45,20,.06)}
+    .fact strong{font-size:23px;color:#8a5429;display:block;margin-bottom:4px}
+    .gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px;gap:12px}
+    .photo{border-radius:12px;background-size:cover;background-position:center;display:flex;align-items:end;padding:18px;color:white;font-weight:bold;overflow:hidden;position:relative}
+    .photo:before{content:"";position:absolute;inset:0;background:linear-gradient(transparent,rgba(0,0,0,.70))}
+    .photo span{position:relative;z-index:1}
+    .photo.big{grid-row:span 2;background-image:url("https://upload.wikimedia.org/wikipedia/commons/b/b4/Women_in_Macadade%2C_Atauro.jpg")}
+    .photo.two{background-image:url("https://upload.wikimedia.org/wikipedia/commons/4/4f/Atauro_Island%2C_Tua_Koin%2C_Timor_Leste.jpg")}
+    .photo.three{background-image:url("https://upload.wikimedia.org/wikipedia/commons/b/b3/Atauro_coast.jpg")}
+    .photo.four{background-image:url("https://upload.wikimedia.org/wikipedia/commons/d/d5/16721_-_Atauro.jpg")}
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .card{background:white;padding:30px 22px;border-radius:15px;border:1px solid #ead9c5;box-shadow:0 8px 25px rgba(80,45,20,.06)}
+    .icon{font-size:38px;margin-bottom:10px}
+    .card h3{color:#4b2f1d;margin-bottom:7px}
+    .card p{font-size:14px;color:#6d5c50}
+    .culture{background:#4b2f1d;color:white;display:grid;grid-template-columns:1fr 1fr;padding:0}
+    .culture-img{min-height:500px;background:url("https://upload.wikimedia.org/wikipedia/commons/b/b4/Women_in_Macadade%2C_Atauro.jpg") center/cover}
+    .culture-text{padding:75px 10%;display:flex;flex-direction:column;justify-content:center}
+    .culture-text h2{font-family:Georgia,serif;font-size:48px;line-height:1.1;margin-bottom:18px}
+    .culture-text p{color:#eadfce}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .step{background:white;border-radius:14px;padding:28px;border:1px solid #ead9c5}
+    .step-number{color:#a7642c;font-weight:800;font-size:13px;letter-spacing:2px}
+    .step h3{margin:10px 0 5px}
+    .notice{margin-top:25px;background:#f2e2c7;padding:18px;border-radius:10px;font-size:14px}
+    .contact{background:#efe2ce}
+    .contact-box{max-width:800px;margin:auto;text-align:center}
+    .contact h2{font-size:42px;color:#4b2f1d}
+    footer{background:#2c1b11;color:#d9c8b8;padding:28px 8%;display:flex;justify-content:space-between;gap:20px;font-size:13px}
+    .credit{opacity:.8;font-size:11px;max-width:850px;margin:12px auto 0;text-align:center}
+    @media(max-width:900px){
+      nav{display:none}
+      .about-grid,.culture{grid-template-columns:1fr}
+      .culture-img{min-height:320px}
+      .cards{grid-template-columns:1fr 1fr}
+      .steps{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr 1fr;grid-template-rows:220px 220px 220px}
+      .photo.big{grid-row:span 1;grid-column:span 2}
+    }
+    @media(max-width:600px){
+      section{padding:65px 6%}
+      .hero{padding-left:6%;padding-right:6%}
+      .hero h1{font-size:58px}
+      .hero p:not(.tag){font-size:17px}
+      .cards{grid-template-columns:1fr}
+      .gallery{display:block}
+      .photo{height:230px;margin-bottom:10px}
+      .about h2,.culture-text h2{font-size:39px}
+      footer{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="#home">ATAÚRO<span>•</span></a>
+  <nav>
+    <a href="#home">Inísiu</a>
+    <a href="#kona-ba">Artesanatu</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#tipu">Tipu Artesanatu</a>
+    <a href="#komunidade">Komunidade</a>
+    <a href="#kontaktu">Kontaktu</a>
+     <a href="index.html">Fila</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <p class="tag">ARTESANATU LOKAL • ATAÚRO</p>
+    <h1>Artesanatu Ataúro</h1>
+    <p>Arte manual, teçidu no koñesimentu lokal ne’ebé hatudu identidade no criatividade komunidade Ataúro.</p>
+    <a class="btn primary" href="#galeria">Haree Galeria</a>
+    <a class="btn outline" href="#kona-ba">Conhece Artesanatu</a>
+  </div>
+</section>
+
+<section class="about" id="kona-ba">
+  <div class="about-grid">
+    <div>
+      <p class="tag">KONA-BA ARTESANATU</p>
+      <h2>Arte lokal husi liman komunidade Ataúro.</h2>
+      <p>Artesanatu lokal mak parte importante husi identidade no patrimóniu kultura. Teçidu, fibra natural no objetu halo ho liman hatudu habilidade, criatividade no koñesimentu ne’ebé aprende no transmite entre jerasaun sira.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><strong>🧵 Teçidu & Tais</strong> Teçidu tradisional no padraun sira bele reprezenta identidade no tradisaun.</div>
+      <div class="fact"><strong>🌿 Fibra Natural</strong> Materiál natural bele transforma sai roupa, dekorasaun no produtu arte manual.</div>
+      <div class="fact"><strong>🤲 Arte husi Liman</strong> Artesanatu valoriza habilidade lokal no koñesimentu komunidade.</div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="title">
+    <p class="tag">GALERIA</p>
+    <h2>Artesanatu no Ambiente Lokal Ataúro</h2>
+    <p>Galeria ne’e hatudu artesanatu, fibra natural, uma lokal no paisajen tasi Ataúro.</p>
+  </div>
+  <div class="gallery">
+    <div class="photo big"><span>Fibra Natural & Arte Manual</span></div>
+    <div class="photo two"><span>Uma no Ambiente Lokal</span></div>
+    <div class="photo three"><span>Tasi no Paisajen Ataúro</span></div>
+    <div class="photo four"><span>Memória Kultura Ataúro</span></div>
+  </div>
+</section>
+
+<section id="tipu">
+  <div class="title">
+    <p class="tag">ARTESANATU LOKAL</p>
+    <h2>Elementu importante sira</h2>
+    <p>Artesanatu bele liga arte, natureza, identidade no ekonomia komunidade.</p>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="icon">🧵</div><h3>Teçidu</h3><p>Padraun, kor no técnica teçidu reprezenta koñesimentu tradisional.</p></div>
+    <div class="card"><div class="icon">🌿</div><h3>Fibra Natural</h3><p>Materiál natural bele uza hodi kria objetu no dekorasaun lokal.</p></div>
+    <div class="card"><div class="icon">🧺</div><h3>Produtu Manual</h3><p>Objetu sira ne’ebé halo ho liman bele sai parte husi identidade no souvenir lokal.</p></div>
+    <div class="card"><div class="icon">🏝️</div><h3>Identidade Ataúro</h3><p>Arte lokal liga komunidade ho natureza no istória ilha.</p></div>
+  </div>
+</section>
+
+<section class="culture">
+  <div class="culture-img"></div>
+  <div class="culture-text">
+    <p class="tag">IDENTIDADE ATAÚRO</p>
+    <h2>Artesanatu mak istória ne’ebé ita bele haree no kaer.</h2>
+    <p>Artesanatu lokal la’ós deit objetu dekorativu. Nia bele lori koñesimentu, memória, habilidade no identidade komunidade. Valoriza artesanatu lokal signifika valoriza liman no koñesimentu ema sira ne’ebé halo.</p>
+  </div>
+</section>
+
+<section id="komunidade">
+  <div class="title">
+    <p class="tag">KOMUNIDADE & ARTESANATU</p>
+    <h2>Valoriza no respeita arte lokal</h2>
+    <p>Vizitante no konsumidór bele apoia artesanatu ho respeitu ba autoria, komunidade no valor produtu.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><span class="step-number">01 — HAREE</span><h3>Conhece produtu</h3><p>Haree materia, técnica no istória ne’ebé iha detrás artesanatu.</p></div>
+    <div class="step"><span class="step-number">02 — RESPEITA</span><h3>Valoriza koñesimentu</h3><p>Respeita autoria, costume no koñesimentu tradisional komunidade.</p></div>
+    <div class="step"><span class="step-number">03 — APOIA</span><h3>Sosa lokal</h3><p>Hili produtu lokal no ajuda valoriza oportunidade ekonomia ba artesan.</p></div>
+  </div>
+  <div class="notice">💡 <strong>Nota:</strong> Bainhira foti foto ka dokumenta atividade artesanatu, husu permisaun ba ema ka komunidade ne’ebé involve.</div>
+</section>
+
+<section class="contact" id="kontaktu">
+  <div class="contact-box">
+    <p class="tag">ARTESANATU LOKAL ATAÚRO</p>
+    <h2>Descobre arte, liman no identidade Ataúro.</h2>
+    <p>Teçidu • Fibra Natural • Arte Manual • Komunidade</p>
+    <br>
+    <a class="btn primary" href="#home">Fila ba Inísiu ↑</a>
+    <p class="credit">Imajen: Wikimedia Commons — “Atauro coast” (molly+), “Atauro Island, Tua Koin” (Ian Cochrane), “Women in Macadade, Atauro” (Tatoli Ba Kultura), no “16721 - Atauro”. Licensa no atribuisaun tuir pájina fonte.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="logo">ATAÚRO<span>•</span></div>
+  <div>© 2026 Artesanatu Lokal Ataúro</div>
+  <div>Arte • Identidade • Komunidade</div>
+</footer>
+
+</body>
+</html>

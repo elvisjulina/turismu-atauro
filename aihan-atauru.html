@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="tet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ai-han Ataúro | Turizmu Timor-Leste</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;color:#12343d;background:#f6fbfc;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    header{
+      position:fixed;top:0;left:0;width:100%;z-index:10;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:18px 7%;background:rgba(3,47,60,.88);backdrop-filter:blur(10px);
+      color:white
+    }
+    .logo{font-size:25px;font-weight:800;letter-spacing:2px}
+    .logo span{color:#ffd166}
+    nav{display:flex;gap:25px;font-size:14px;font-weight:700}
+    nav a:hover{color:#ffd166}
+    .hero{
+      min-height:100vh;display:flex;align-items:center;padding:120px 8% 70px;
+      position:relative;color:white;
+      background:
+        linear-gradient(90deg,rgba(0,40,52,.78),rgba(0,80,100,.20)),
+        url("https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=2200&q=85")
+        center/cover no-repeat;
+    }
+    .hero-content{max-width:720px}
+    .tag{font-size:12px;letter-spacing:4px;font-weight:800;color:#ffe08a;margin-bottom:12px}
+    h1{font-size:clamp(55px,9vw,105px);line-height:.95;margin-bottom:22px}
+    .hero p:not(.tag){font-size:20px;max-width:650px;margin-bottom:30px}
+    .btn{display:inline-block;padding:13px 24px;border-radius:30px;font-weight:700;margin-right:8px}
+    .primary{background:#ffd166;color:#17333b}
+    .outline{border:1px solid white;background:rgba(255,255,255,.12)}
+    section{padding:85px 8%}
+    .title{text-align:center;max-width:760px;margin:0 auto 45px}
+    .title h2{font-size:42px;color:#063746;margin-bottom:12px}
+    .title p{color:#597078}
+    .about{background:#f0e8d7}
+    .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}
+    .about h2{font-family:Georgia,serif;font-size:52px;color:#063746;line-height:1.05;margin-bottom:18px}
+    .facts{display:grid;gap:15px}
+    .fact{background:white;padding:22px;border-left:4px solid #0b8aa0;border-radius:10px}
+    .fact strong{font-size:25px;color:#006b83;display:block}
+    .gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px;gap:12px}
+    .photo{border-radius:12px;background-size:cover;background-position:center;display:flex;align-items:end;padding:18px;color:white;font-weight:bold;overflow:hidden;position:relative}
+    .photo:before{content:"";position:absolute;inset:0;background:linear-gradient(transparent,rgba(0,0,0,.65))}
+    .photo span{position:relative;z-index:1}
+    .photo.big{grid-row:span 2;background-image:url("https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1500&q=85")}
+    .photo.two{background-image:url("https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1000&q=85")}
+    .photo.three{background-image:url("https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=85")}
+    .photo.four{background-image:url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=85")}
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .card{background:white;padding:30px 22px;border-radius:15px;border:1px solid #dcebed;box-shadow:0 8px 25px rgba(0,50,70,.06)}
+    .icon{font-size:38px;margin-bottom:10px}
+    .card h3{color:#063746;margin-bottom:7px}
+    .card p{font-size:14px;color:#60777d}
+    .culture{background:#063746;color:white;display:grid;grid-template-columns:1fr 1fr;padding:0}
+    .culture-img{min-height:500px;background:url("https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1500&q=85") center/cover}
+    .culture-text{padding:75px 10%;display:flex;flex-direction:column;justify-content:center}
+    .culture-text h2{font-family:Georgia,serif;font-size:48px;line-height:1.1;margin-bottom:18px}
+    .culture-text p{color:#d0e1e4}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .step{background:white;border-radius:14px;padding:28px;border:1px solid #dcebed}
+    .step-number{color:#00829a;font-weight:800;font-size:13px;letter-spacing:2px}
+    .step h3{margin:10px 0 5px}
+    .notice{margin-top:25px;background:#e5f5f7;padding:18px;border-radius:10px;font-size:14px}
+    .contact{background:#f0e8d7}
+    .contact-box{max-width:800px;margin:auto;text-align:center}
+    .contact h2{font-size:42px;color:#063746}
+    footer{background:#022630;color:#bcd0d4;padding:28px 8%;display:flex;justify-content:space-between;gap:20px;font-size:13px}
+    @media(max-width:900px){
+      nav{display:none}
+      .about-grid,.culture{grid-template-columns:1fr}
+      .culture-img{min-height:320px}
+      .cards{grid-template-columns:1fr 1fr}
+      .steps{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr 1fr;grid-template-rows:220px 220px 220px}
+      .photo.big{grid-row:span 1;grid-column:span 2}
+      footer{flex-direction:column}
+    }
+    @media(max-width:600px){
+      section{padding:65px 6%}
+      .hero{padding-left:6%;padding-right:6%}
+      .hero h1{font-size:62px}
+      .hero p:not(.tag){font-size:17px}
+      .cards{grid-template-columns:1fr}
+      .gallery{display:block}
+      .photo{height:230px;margin-bottom:10px}
+      .about h2,.culture-text h2{font-size:39px}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="#home">ATAÚRO<span>•</span></a>
+  <nav>
+    <a href="#home">Inísiu</a>
+    <a href="#kona-ba">Kona-ba</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#atividade">Ai-han</a>
+    <a href="#viagem">Viagem</a>
+    <a href="index.html">sai</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <p class="tag">ILHA ATAÚRO • TIMOR-LESTE</p>
+    <h1>Ai-han Ataúro</h1>
+    <p>Ikan tasi diak, ai-han tradisional no sabor lokal ne'ebé halo Ataúro sai destinasaun gastronomia ida ne'ebé úniku.</p>
+    <a class="btn primary" href="#galeria">Haree Galeria</a>
+    <a class="btn outline" href="#viagem">Planeia Viagem</a>
+  </div>
+</section>
+
+<section class="about" id="kona-ba">
+  <div class="about-grid">
+    <div>
+      <p class="tag">KONA-BA AI-HAN ATAÚRO</p>
+      <h2>Paraízu ai-han tasi iha Timor-Leste.</h2>
+      <p>Ataúro oferese ikan hetan foun kada loron, ai-han tradisional komunidade peskadór no esperiénsia gastronomia lokal. Website ida-ne'e bele uza hanesan portal simples atu promove ai-han no turizmu gastronomia Ataúro.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><strong>🐟 Ikan Foun</strong> Ikan hetan foun husi peskadór lokal kada loron.</div>
+      <div class="fact"><strong>🍢 Ikan Sunu</strong> Ikan sunu tradisional ho tempero lokal.</div>
+      <div class="fact"><strong>🥥 Ai-han Tradisional</strong> Reseita antigu husi komunidade Ataúro.</div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="title">
+    <p class="tag">GALERIA</p>
+    <h2>Beleza Ai-han Ataúro</h2>
+    <p>Troka foto sira ho ita nia foto rasik bainhira ita iha foto original ai-han Ataúro.</p>
+  </div>
+  <div class="gallery">
+    <div class="photo big"><span>Ikan Sunu Ataúro</span></div>
+    <div class="photo two"><span>Ikan Foun</span></div>
+    <div class="photo three"><span>Ai-han Tradisional</span></div>
+    <div class="photo four"><span>Merkadu Peskadór</span></div>
+  </div>
+</section>
+
+<section id="atividade">
+  <div class="title">
+    <p class="tag">EXPERIÉNSIA</p>
+    <h2>Ai-han iha Ataúro</h2>
+    <p>Ideia ai-han no esperiénsia gastronomia ne'ebé bele inklui iha ita nia website turizmu.</p>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="icon">🐟</div><h3>Ikan Sunu</h3><p>Ikan sunu foun ho tempero tradisional Ataúro.</p></div>
+    <div class="card"><div class="icon">🍚</div><h3>Ai-han Loron-loron</h3><p>Han ai-han tradisional hamutuk ho família lokal.</p></div>
+    <div class="card"><div class="icon">🥥</div><h3>Tuir Peskador</h3><p>Akompaña peskador sira ba hetan ikan foun kada dader.</p></div>
+    <div class="card"><div class="icon">🌶️</div><h3>Tempero Lokal</h3><p>Aprende halo tempero no molho tradisional Ataúro.</p></div>
+  </div>
+</section>
+
+<section class="culture">
+  <div class="culture-img"></div>
+  <div class="culture-text">
+    <p class="tag">KULTURA & KOMUNIDADE</p>
+    <h2>Ai-han Ataúro la'ós ikan de'it.</h2>
+    <p>Turizmu gastronomia iha Ataúro bele liga sabor, tradisaun, reseita antigu no moris komunidade peskadór sira.</p>
+  </div>
+</section>
+
+<section id="viagem">
+  <div class="title">
+    <p class="tag">PLANEA VIAGEM</p>
+    <h2>Oinsá atu ba han ai-han iha Ataúro?</h2>
+    <p>Informasaun transporte tenke verifika antes viajen tanba oráriu bele muda.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><span class="step-number">01 — DILI</span><h3>Ba portu</h3><p>Prepara viagem no ba pontu embarque iha Dili.</p></div>
+    <div class="step"><span class="step-number">02 — TRANSPORTE</span><h3>Ferry / Boat</h3><p>Hili transporte disponivel tuir ita nia data viagem.</p></div>
+    <div class="step"><span class="step-number">03 — ATAÚRO</span><h3>Han ai-han lokal</h3><p>To'o Ataúro, prova ikan sunu, ai-han tradisional no sabor lokal.</p></div>
+  </div>
+  <div class="notice">💡 <strong>Nota:</strong> Antes de viagem, confirma oráriu transporte no kondisaun tasi.</div>
+</section>
+
+<section class="contact">
+  <div class="contact-box">
+    <p class="tag">AI-HAN ATAÚRO</p>
+    <h2>Prova sabor ilha.</h2>
+    <p>Ikan Foun • Kultura • Tempero • Tradisaun</p>
+    <br>
+    <a class="btn primary" href="#home">Fila ba Inísiu ↑</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="logo">ATAÚRO<span>•</span></div>
+  <div>© 2026 Ai-han Ataúro • Website Turizmu</div>
+  <div>Ikan Foun • Kultura • Tradisaun</div>
+</footer>
+
+</body>
+</html>

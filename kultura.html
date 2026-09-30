@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="tet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kultura Tradisional Ataúro | Timor-Leste</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;color:#12343d;background:#f6fbfc;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    header{
+      position:fixed;top:0;left:0;width:100%;z-index:10;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:18px 7%;background:rgba(3,47,60,.88);backdrop-filter:blur(10px);
+      color:white
+    }
+    .logo{font-size:25px;font-weight:800;letter-spacing:2px}
+    .logo span{color:#ffd166}
+    nav{display:flex;gap:25px;font-size:14px;font-weight:700}
+    nav a:hover{color:#ffd166}
+    .hero{
+      min-height:100vh;display:flex;align-items:center;padding:120px 8% 70px;
+      position:relative;color:white;
+      background:
+        linear-gradient(90deg,rgba(0,40,52,.78),rgba(0,80,100,.20)),
+        url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=2200&q=85")
+        center/cover no-repeat;
+    }
+    .hero-content{max-width:720px}
+    .tag{font-size:12px;letter-spacing:4px;font-weight:800;color:#ffe08a;margin-bottom:12px}
+    h1{font-size:clamp(55px,9vw,105px);line-height:.95;margin-bottom:22px}
+    .hero p:not(.tag){font-size:20px;max-width:650px;margin-bottom:30px}
+    .btn{display:inline-block;padding:13px 24px;border-radius:30px;font-weight:700;margin-right:8px}
+    .primary{background:#ffd166;color:#17333b}
+    .outline{border:1px solid white;background:rgba(255,255,255,.12)}
+    section{padding:85px 8%}
+    .title{text-align:center;max-width:760px;margin:0 auto 45px}
+    .title h2{font-size:42px;color:#063746;margin-bottom:12px}
+    .title p{color:#597078}
+    .about{background:#f0e8d7}
+    .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}
+    .about h2{font-family:Georgia,serif;font-size:52px;color:#063746;line-height:1.05;margin-bottom:18px}
+    .facts{display:grid;gap:15px}
+    .fact{background:white;padding:22px;border-left:4px solid #0b8aa0;border-radius:10px}
+    .fact strong{font-size:25px;color:#006b83;display:block}
+    .gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px;gap:12px}
+    .photo{border-radius:12px;background-size:cover;background-position:center;display:flex;align-items:end;padding:18px;color:white;font-weight:bold;overflow:hidden;position:relative}
+    .photo:before{content:"";position:absolute;inset:0;background:linear-gradient(transparent,rgba(0,0,0,.65))}
+    .photo span{position:relative;z-index:1}
+    .photo.big{grid-row:span 2;background-image:url("https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1500&q=85")}
+    .photo.two{background-image:url("https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1000&q=85")}
+    .photo.three{background-image:url("https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1000&q=85")}
+    .photo.four{background-image:url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=85")}
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .card{background:white;padding:30px 22px;border-radius:15px;border:1px solid #dcebed;box-shadow:0 8px 25px rgba(0,50,70,.06)}
+    .icon{font-size:38px;margin-bottom:10px}
+    .card h3{color:#063746;margin-bottom:7px}
+    .card p{font-size:14px;color:#60777d}
+    .culture{background:#063746;color:white;display:grid;grid-template-columns:1fr 1fr;padding:0}
+    .culture-img{min-height:500px;background:url("https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1500&q=85") center/cover}
+    .culture-text{padding:75px 10%;display:flex;flex-direction:column;justify-content:center}
+    .culture-text h2{font-family:Georgia,serif;font-size:48px;line-height:1.1;margin-bottom:18px}
+    .culture-text p{color:#d0e1e4}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .step{background:white;border-radius:14px;padding:28px;border:1px solid #dcebed}
+    .step-number{color:#00829a;font-weight:800;font-size:13px;letter-spacing:2px}
+    .step h3{margin:10px 0 5px}
+    .notice{margin-top:25px;background:#e5f5f7;padding:18px;border-radius:10px;font-size:14px}
+    .contact{background:#f0e8d7}
+    .contact-box{max-width:800px;margin:auto;text-align:center}
+    .contact h2{font-size:42px;color:#063746}
+    footer{background:#022630;color:#bcd0d4;padding:28px 8%;display:flex;justify-content:space-between;gap:20px;font-size:13px}
+    @media(max-width:900px){
+      nav{display:none}
+      .about-grid,.culture{grid-template-columns:1fr}
+      .culture-img{min-height:320px}
+      .cards{grid-template-columns:1fr 1fr}
+      .steps{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr 1fr;grid-template-rows:220px 220px 220px}
+      .photo.big{grid-row:span 1;grid-column:span 2}
+      footer{flex-direction:column}
+    }
+    @media(max-width:600px){
+      section{padding:65px 6%}
+      .hero{padding-left:6%;padding-right:6%}
+      .hero h1{font-size:62px}
+      .hero p:not(.tag){font-size:17px}
+      .cards{grid-template-columns:1fr}
+      .gallery{display:block}
+      .photo{height:230px;margin-bottom:10px}
+      .about h2,.culture-text h2{font-size:39px}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="#home">ATAÚRO<span>•</span></a>
+  <nav>
+    <a href="#home">Inísiu</a>
+    <a href="#kona-ba">Kultura</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#atividade">Tradisaun</a>
+    <a href="#viagem">Komunidade</a>
+    <a href="index.html">Fila</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <p class="tag">KULTURA TRADISIONAL • ATAÚRO</p>
+    <h1>Kultura Ataúro</h1>
+    <p>Kultura, tradisaun, artesanatu no koñesimentu lokal ne’ebé preserva identidade komunidade Ataúro.</p>
+    <a class="btn primary" href="#galeria">Haree Galeria</a>
+    <a class="btn outline" href="#viagem">Conhece Kultura</a>
+  </div>
+</section>
+
+<section class="about" id="kona-ba">
+  <div class="about-grid">
+    <div>
+      <p class="tag">KONA-BA KULTURA</p>
+      <h2>Identidade no tradisaun Ataúro.</h2>
+      <p>Kultura tradisional Ataúro hatudu identidade komunidade liuhosi tradisaun, artesanatu, peskas, dansa, música no koñesimentu ne’ebé pasa husi jerasaun ba jerasaun.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><strong>🧺 Artesanatu</strong> Produtu lokal no habilidade tradisional komunidade.</div>
+      <div class="fact"><strong>🎶 Música & Dansa</strong> Expressa kultura no tradisaun lokal.</div>
+      <div class="fact"><strong>🎣 Peskas Tradisional</strong> Koñesimentu tasi no maneira moris komunidade peskadór.</div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="title">
+    <p class="tag">GALERIA</p>
+    <h2>Rikuza Kultura Tradisional Ataúro</h2>
+    <p>Galeria ne’e bele uza atu hatudu tradisaun, artesanatu, dansa, peskas no moris komunidade lokal Ataúro.</p>
+  </div>
+  <div class="gallery">
+    <div class="photo big"><span>Artesanatu Lokal</span></div>
+    <div class="photo two"><span>Tradisaun Lokal</span></div>
+    <div class="photo three"><span>Dansa no Música</span></div>
+    <div class="photo four"><span>Moris Komunidade</span></div>
+  </div>
+</section>
+
+<section id="atividade">
+  <div class="title">
+    <p class="tag">KULTURA & TRADISAUN</p>
+    <h2>Rai-ain Kultura Ataúro</h2>
+    <p>Elementu importante sira ne’ebé hatudu identidade no moris tradisional komunidade Ataúro.</p>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="icon">🧺</div><h3>Artesanatu</h3><p>Conhece habilidade no produtu artesanatu ne’ebé halo husi komunidade lokal.</p></div>
+    <div class="card"><div class="icon">🎶</div><h3>Música & Dansa</h3><p>Aprende kona-ba música, dansa no forma expressa kultura tradisional.</p></div>
+    <div class="card"><div class="icon">🎣</div><h3>Peskas Tradisional</h3><p>Conhece koñesimentu tasi no prática peskas ne’ebé pasa husi katuas ba joven.</p></div>
+    <div class="card"><div class="icon">👥</div><h3>Komunidade</h3><p>Conhece moris, istória no tradisaun komunidade lokal Ataúro.</p></div>
+  </div>
+</section>
+
+<section class="culture">
+  <div class="culture-img"></div>
+  <div class="culture-text">
+    <p class="tag">IDENTIDADE ATAÚRO</p>
+    <h2>Ataúro nia kultura mak identidade.</h2>
+    <p>Kultura tradisional Ataúro liga tradisaun, artesanatu, peskas, música, dansa no moris komunidade. Preserva koñesimentu lokal signifika preserva identidade no istória ilha.</p>
+  </div>
+</section>
+
+<section id="viagem">
+  <div class="title">
+    <p class="tag">KONA-BA KOMUNIDADE</p>
+    <h2>Respeita kultura lokal</h2>
+    <p>Vizitante sira bele aprende no aprecia kultura lokal ho respeitu ba komunidade no tradisaun.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><span class="step-number">01 — RESPEITU</span><h3>Respeita tradisaun</h3><p>Respeita regra, espasu sagradu no costume komunidade lokal.</p></div>
+    <div class="step"><span class="step-number">02 — APRENDE</span><h3>Conhece kultura</h3><p>Ko’alia ho komunidade no aprende kona-ba istória no koñesimentu lokal.</p></div>
+    <div class="step"><span class="step-number">03 — PARTISIPA</span><h3>Apoia komunidade</h3><p>Valoriza artesanatu no produtu lokal hodi ajuda ekonomia komunidade.</p></div>
+  </div>
+  <div class="notice">💡 <strong>Nota:</strong> Bainhira vizita atividade kulturál, husu permisaun no respeita tradisaun komunidade lokal.</div>
+</section>
+
+<section class="contact">
+  <div class="contact-box">
+    <p class="tag">KULTURA TRADISIONAL ATAÚRO</p>
+    <h2>Descobre identidade Ataúro.</h2>
+    <p>Tradisaun • Artesanatu • Peskas • Komunidade</p>
+    <br>
+    <a class="btn primary" href="#home">Fila ba Inísiu ↑</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="logo">ATAÚRO<span>•</span></div>
+  <div>© 2026 Kultura Tradisional Ataúro • Website Kultura</div>
+  <div>Tradisaun • Identidade • Komunidade</div>
+</footer>
+
+</body>
+</html>
